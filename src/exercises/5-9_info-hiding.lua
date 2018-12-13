@@ -1,4 +1,3 @@
-
  function newSkeletonQuery (_age, _sex, _leglength)
       local self = {
           age = _age, 
@@ -43,7 +42,3 @@ print("m40: "..querym40.blength())
 print("m20: "..querym20.blength())
 print("f40: "..queryf40.blength())
 print("f20: "..queryf20.blength())
-
-
-
-
