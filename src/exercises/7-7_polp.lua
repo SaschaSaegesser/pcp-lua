@@ -1,4 +1,4 @@
-phonebook = {}
+
 
 --returns a proxy table where any attempt to read gives the original value
 --and any attempt to write throws an error
@@ -23,17 +23,11 @@ end
 
 --returns the orignal table with a new metatable
 function readWrite (table)
-  --[[local mt = {       -- create metatable
-    __index = table,     -- will be called/returned whenever the given value is non-existent in the table
-    __newindex = function (table,key,value)  -- will be called whenever the caller tries to (over)write a value
-      table[key] = value
-      
-    end
-  }]]
-  -- setmetatable(table, mt)
   return table
 end
 
+--create phonebook
+phonebook = {}
 
 --define user
 user = readOnly(phonebook)
@@ -46,7 +40,9 @@ admin["Matthias"] = 417802244
 admin["Horst"] = 417800044
 admin["Adi"] = 417802200
 
-
+--user searches
 user.search("Matthias")
+
+--admin adds
 admin["Matthiass"] = 418008000
 
