@@ -1,5 +1,3 @@
-
-
 --returns a proxy table where any attempt to read gives the original value
 --and any attempt to write throws an error
 function readOnly (table)
@@ -21,7 +19,7 @@ function readOnly (table)
   return proxy
 end
 
---returns the orignal table with a new metatable
+--returns the orignal table
 function readWrite (table)
   return table
 end
