@@ -1,29 +1,36 @@
-function removeElement(elems)
-  local local_elems = elems
-  return function(elem)
-    table.remove(local_elems, elem)
-    print_elems(local_elems)
-    return local_elems
+function removeElement(elements)
+  local elems = elements
+  local i = 0
+  return function(elem) -- Ananymous function
+    if (type(elem) == "string") then -- Value is a string (remove by value)
+      for k, v in ipairs(elems) do
+        if elems[k] == elem then
+          table.remove(elems, k)
+          break
+        end
+      end
+    else -- Value is a number (remove by index)
+      table.remove(elems, elem)
+    end
+    print_table(elems)
+    i = i + 1
+    print("calls:", i)
   end
 end
 
-function print_elems(elems)
+function print_table(elems)
   for k,v in ipairs(elems) do
     print(k,v)
   end
 end
 
-values = {"a", "b", "c"}
 print("First table:")
-table1 = removeElement(values)
-table1(1)
+table1 = removeElement({"a", "b", "c"})
+table1("b")
 
-values = {"a", "b", "c"}
 print("Second table:")
-table2 = removeElement(values)
-table2(2)
+table2 = removeElement({"a", "b", "c"})
+table2("c")
 
-values = {"a", "b", "c"}
-print("Third table:")
-table3 = removeElement(values)
-table3(3)
+print("First table:")
+table1(1)
