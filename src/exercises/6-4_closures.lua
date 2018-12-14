@@ -1,16 +1,12 @@
-function removeElement(elements)
+function removeElement(elements) -- First-class function
   local elems = elements
   local i = 0
-  return function(elem) -- Ananymous function
-    if (type(elem) == "string") then -- Value is a string (remove by value)
-      for k, v in ipairs(elems) do
-        if elems[k] == elem then
-          table.remove(elems, k)
-          break
-        end
+  return function(elem) -- Anonyme Funktion
+    for k, v in ipairs(elems) do
+      if elems[k] == elem then
+        table.remove(elems, k)
+        break
       end
-    else -- Value is a number (remove by index)
-      table.remove(elems, elem)
     end
     print_table(elems)
     i = i + 1
@@ -24,13 +20,13 @@ function print_table(elems)
   end
 end
 
-print("First table:")
-table1 = removeElement({"a", "b", "c"})
-table1("b")
+print("First closure:")
+closure1 = removeElement({"a", "b", "c"})
+closure1("b")
 
-print("Second table:")
-table2 = removeElement({"a", "b", "c"})
-table2("c")
+print("Second closure:")
+closure2 = removeElement({"a", "b", "c"})
+closure2("c")
 
-print("First table:")
-table1(1)
+print("First closure:")
+closure1("a")
