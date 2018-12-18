@@ -20,13 +20,13 @@ function print_table(elems)
   end
 end
 
-print("First closure:")
-closure1 = removeElement({"a", "b", "c"})
-closure1("b")
+print("First list:")
+list1 = removeElement({"a", "b", "c"})
+list1("b")
 
-print("Second closure:")
-closure2 = removeElement({"a", "b", "c"})
-closure2("c")
+print("Second list:")
+list2 = removeElement({"a", "b", "c"})
+list2("c")
 
-print("First closure:")
-closure1("a")
+print("First list:")
+list1("a")
